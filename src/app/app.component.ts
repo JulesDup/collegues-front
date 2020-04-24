@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { collegues_mock } from './mock/collegues.mock';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'collegues-front';
+  unObjetCollegueFourni = collegues_mock;
 }

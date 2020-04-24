@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ColleguesComponent } from './collegues/collegues.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ColleguesComponent
   ],
   imports: [
     BrowserModule,
