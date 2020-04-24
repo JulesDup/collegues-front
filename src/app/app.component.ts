@@ -7,6 +7,5 @@ import { collegues_mock } from './mock/collegues.mock';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'collegues-front';
   unObjetCollegueFourni = collegues_mock;
 }

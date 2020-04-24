@@ -1,13 +1,6 @@
 export class Collegue {
 
-  matricule: string;
-  nom: string;
-  prenom: string;
-  email: string;
-  dateDeNaissance: Date;
-  photoUrl: string;
-
-  constructor(matricule: string, nom: string, prenom: string, email: string, dateDeNaissance: Date, photoUrl: string) {
+  constructor(public matricule: string, public nom: string, public prenom: string, public email: string, public dateDeNaissance: Date, public photoUrl: string) {
     this.matricule = matricule;
     this.nom = nom;
     this.prenom = prenom;
