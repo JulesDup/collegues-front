@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
@@ -18,7 +16,7 @@
 
             <i class="glyphicon glyphicon-user"></i>
             <label> Nom :</label>
-            {{col.nom}}
+            {{col.nom | uppercase}}
             <br />
 
             <i class="glyphicon glyphicon-user"></i>
@@ -28,24 +26,34 @@
 
             <i class="glyphicon glyphicon-hourglass"></i>
             <label> Date de naissance :</label>
-            {{col.dateDeNaissance}}
+            {{col.dateDeNaissance| date:'dd/MM/yyyy'}}
             <br />
 
-            <i class="glyphicon glyphicon-envelope"></i>
+            <i class="fa fa-at" aria-hidden="true"></i>
             <label> Email :</label>
-            {{col.email}}
+            <div *ngIf="!modModif ; else desactivModifPut">
+              {{col.email}}
+            </div>
+            <ng-template #desactivModifPut><input type="text" class="form-control" id="mail" value="{{col.email}}">
+            </ng-template>
             <br />
+
+
 
             <!-- Split button -->
             <div class="btn-group">
-              <button type="button" class="btn btn-primary" (click)="modifier()"> Modifier </button>
+              <div *ngIf="!modModif ; else desactivModif">
+                <button type="button" class="btn btn-primary" (click)="modifier()"> Modifier
+                </button>
+              </div>
+              <ng-template #desactivModif><button type="button" class="btn btn-success" (click)="validation()">
+                  Valider
+                </button></ng-template>
+              <br />
             </div>
           </div>
         </div>
       </div>
-      <p class="text-muted">
-        <a href="#" class="text-reset" (click)="creationCollegue()">Creer un nouveau collegue</a>
-      </p>
     </div>
   </div>
 </div>

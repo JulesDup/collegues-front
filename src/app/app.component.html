@@ -1,6 +1,15 @@
 <header></header>
+
 <main class="container">
-  <app-collegues [col]="unObjetCollegueFourni"></app-collegues>
+  <!-- un collegue tout seul -->
+  <div class="col-xs-12 col-sm-6 col-md-6">
+    <h2>{{unObjetCollegueFourni.nom}} </h2>
+    <app-collegues [col]="unObjetCollegueFourni"></app-collegues>
+  </div>
+  <!-- Liste Collegue -->
+  <div class="col-xs-12 col-sm-6 col-md-6">
+    <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
+  </div>
 
 </main>
 <footer></footer>

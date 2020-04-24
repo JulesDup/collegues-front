@@ -1,0 +1,7 @@
+<ng-container>
+  <label> Recherche par noms :</label><input type="text" class="form-control" id="recherche">
+  <button class="btn btn-success">Rechercher</button>
+  <div *ngFor="let collegue of listCollegues">
+    {{collegue.nom}}, {{collegue.prenom}}, {{collegue.matricule}}, {{collegue.dateDeNaissance}}
+  </div>
+</ng-container>

@@ -6,16 +6,21 @@ import { Collegue } from '../models/collegue'
   styleUrls: ['./collegues.component.css']
 })
 export class ColleguesComponent implements OnInit {
+  public modModif: boolean;
 
   @Input() col: Collegue;
-  constructor() { }
+
+  constructor() {
+    this.modModif = false;
+  }
 
   ngOnInit(): void {
   }
   modifier() {
-    console.log('Modification du collegue');
+    this.modModif = true;
   }
-  creationCollegue() {
-    console.log('Creation d’un nouveau collegue');
+
+  validation() {
+    this.modModif = false;
   }
 }
