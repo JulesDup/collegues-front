@@ -7,9 +7,16 @@ import { listCollegues_mock } from '../mock/collegues.mock';
 })
 export class AppRechercheCollegueParNomComponent implements OnInit {
   listCollegues = listCollegues_mock;
+  rechercheEnCours: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  rechercher() {
+    this.rechercheEnCours = true;
+  }
+  masquer() {
+    this.rechercheEnCours = false;
+  }
 }

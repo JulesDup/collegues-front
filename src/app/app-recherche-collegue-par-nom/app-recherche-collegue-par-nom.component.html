@@ -1,7 +1,10 @@
-<ng-container>
+<div>
   <label> Recherche par noms :</label><input type="text" class="form-control" id="recherche">
-  <button class="btn btn-success">Rechercher</button>
+  <button class="btn btn-success" (click)="rechercher()" [hidden]="rechercheEnCours">Rechercher</button>
+  <button class="btn btn-success" (click)="masquer()" [hidden]="!rechercheEnCours">Masquer</button>
+</div>
+<ng-container *ngIf="rechercheEnCours==true">
   <div *ngFor="let collegue of listCollegues">
-    {{collegue.nom}}, {{collegue.prenom}}, {{collegue.matricule}}, {{collegue.dateDeNaissance}}
+    {{collegue.nom}}, {{collegue.prenom}}, {{collegue.matricule}}, {{collegue.dateDeNaissance| date:'dd/MM/yyyy'}}
   </div>
 </ng-container>
