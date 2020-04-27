@@ -4,7 +4,9 @@
   <button class="btn btn-success" (click)="masquer()" [hidden]="!rechercheEnCours">Masquer</button>
 </div>
 <ng-container *ngIf="rechercheEnCours==true">
-  <div *ngFor="let collegue of listCollegues">
-    {{collegue.nom}}, {{collegue.prenom}}, {{collegue.matricule}}, {{collegue.dateDeNaissance| date:'dd/MM/yyyy'}}
-  </div>
+  <ul class="list-groupe">
+    <li class="list-group-item" *ngFor="let collegue of listCollegues">
+      {{collegue.nom}}, {{collegue.prenom}}, {{collegue.matricule}}, {{collegue.dateDeNaissance| date:'dd/MM/yyyy'}}
+    </li>
+  </ul>
 </ng-container>
