@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { collegues_mock } from './mock/collegues.mock';
+import { Collegue } from './models/collegue';
+import { DataService } from './services/data.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,12 @@ import { collegues_mock } from './mock/collegues.mock';
 })
 export class AppComponent implements OnInit {
 
-  unObjetCollegueFourni = collegues_mock;
+  unObjetCollegueFourni: Collegue;
 
+  constructor(private dtService: DataService) { }
 
   ngOnInit(): void {
+   // this.unObjetCollegueFourni = this.dtService.recupererCollegueCourant();
   }
 
   creationCollegue() {

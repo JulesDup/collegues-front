@@ -1,20 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { DataService } from '../services/data.service';
 import { Collegue } from '../models/collegue';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-collegues',
   templateUrl: './collegues.component.html',
   styleUrls: ['./collegues.component.css']
 })
-export class ColleguesComponent implements OnInit {
+export class ColleguesComponent implements OnInit, OnDestroy {
   public modModif: boolean;
 
-  @Input() col: Collegue;
+  collegue: Collegue;
+  transferleCollegue: Subscription;
+  afficheComponent = false;
 
-  constructor() {
+  constructor(private dtService: DataService) {
     this.modModif = false;
   }
 
   ngOnInit(): void {
+    this.transferleCollegue = this.dtService.leTransfertCollegue.subscribe(collegue => {
+      this.collegue = collegue;
+      this.afficheComponent = true;
+    })
   }
   modifier() {
     this.modModif = true;
@@ -22,5 +30,10 @@ export class ColleguesComponent implements OnInit {
 
   validation() {
     this.modModif = false;
+  }
+  ngOnDestroy() {
+    this.transferleCollegue.unsubscribe();
+
+
   }
 }

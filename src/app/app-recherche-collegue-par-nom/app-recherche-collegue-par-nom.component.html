@@ -1,12 +1,12 @@
 <div>
-  <label> Recherche par noms :</label><input type="text" class="form-control" id="recherche">
-  <button class="btn btn-success" (click)="rechercher()" [hidden]="rechercheEnCours">Rechercher</button>
+  <label> Recherche par noms :</label><input type="text" class="form-control" id="rechercheParNom" #saisieNom>
+  <button class="btn btn-success" (click)="rechercher(saisieNom.value)" [hidden]="rechercheEnCours">Rechercher</button>
   <button class="btn btn-success" (click)="masquer()" [hidden]="!rechercheEnCours">Masquer</button>
 </div>
-<ng-container *ngIf="rechercheEnCours==true">
+<ng-container *ngIf="rechercheEnCours">
   <ul class="list-groupe">
-    <li class="list-group-item" *ngFor="let collegue of listCollegues">
-      {{collegue.nom}}, {{collegue.prenom}}, {{collegue.matricule}}, {{collegue.dateDeNaissance| date:'dd/MM/yyyy'}}
+    <li class="list-group-item btn" *ngFor="let matricule of listMatricule" (click)="reccupererCollegue(matricule)">
+      Matricule : {{matricule}},
     </li>
   </ul>
 </ng-container>

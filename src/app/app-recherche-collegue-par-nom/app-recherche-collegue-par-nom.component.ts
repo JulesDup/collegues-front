@@ -1,22 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { listCollegues_mock } from '../mock/collegues.mock';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Collegue } from '../models/collegue';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-recherche-collegue-par-nom',
   templateUrl: './app-recherche-collegue-par-nom.component.html',
   styleUrls: ['./app-recherche-collegue-par-nom.component.css']
 })
-export class AppRechercheCollegueParNomComponent implements OnInit {
-  listCollegues = listCollegues_mock;
-  rechercheEnCours: boolean = false;
-  constructor() { }
+export class AppRechercheCollegueParNomComponent implements OnInit, OnDestroy {
+  public listCollegues: Collegue[];
+  public leCollegue: Collegue;
+  public listMatricule: string[];
+  public rechercheEnCours: boolean = false;
+
+  subRechercheCollegueParComponent: Subscription;
+
+
+
+  constructor(private dtService: DataService) { }
+
 
   ngOnInit(): void {
+    //this.listCollegues = this.dtService.rechercherParNom("socks");
   }
 
-  rechercher() {
+  rechercher(saisiNom: string) {
     this.rechercheEnCours = true;
+    this.subRechercheCollegueParComponent = this.dtService.rechercherParNom(saisiNom).subscribe(data => {
+      this.listMatricule = data;
+    }, error => {
+      console.log(`erreur : ${error}`);
+    });
+  }
+  reccupererCollegue(matricule: string) {
+    this.dtService.recupererCollegueCourant(matricule);
+
   }
   masquer() {
     this.rechercheEnCours = false;
+  }
+  ngOnDestroy() {
+    this.subRechercheCollegueParComponent.unsubscribe();
   }
 }
