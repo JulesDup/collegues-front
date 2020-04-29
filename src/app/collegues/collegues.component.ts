@@ -22,7 +22,7 @@ export class ColleguesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.transferleCollegue = this.dtService.leTransfertCollegue.subscribe(collegue => {
       this.collegue = collegue;
-    })
+    });
   }
   modifier() {
     this.modModif = true;

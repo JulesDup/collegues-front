@@ -12,12 +12,15 @@ import { AppFormCollegueComponent } from './app-form-collegue/app-form-collegue.
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AffichageCollRecherComponent } from './affichage-coll-recher/affichage-coll-recher.component';
+import { GallerieComponent } from './gallerie/gallerie.component';
+import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
 
 
 const appRoute: Routes = [
   { path: 'formulaireCollegue', component: AppFormCollegueComponent },
   { path: 'accueil', component: AffichageCollRecherComponent },
-  { path: 'galerie', component: AffichageCollRecherComponent },
+  { path: 'detailCollegue/:id', component: DetailCollegueComponent },
+  { path: 'gallerie', component: GallerieComponent },
   { path: '', pathMatch: 'full', redirectTo: 'accueil' }
 ];
 @NgModule({
@@ -27,7 +30,9 @@ const appRoute: Routes = [
     AppRechercheCollegueParNomComponent,
     AppHeaderComponent,
     AppFormCollegueComponent,
-    AffichageCollRecherComponent
+    AffichageCollRecherComponent,
+    GallerieComponent,
+    DetailCollegueComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import SaisieDeCollegue from '../models/SaisieDeCollegue';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-collegue',
@@ -9,9 +10,10 @@ import { DataService } from '../services/data.service';
 })
 export class AppFormCollegueComponent implements OnInit {
   public saisieDeCollegue: SaisieDeCollegue = {};
+  messageValisation: string = "Collegue enregistré "
 
 
-  constructor(private dtService: DataService) { }
+  constructor(private dtService: DataService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +26,8 @@ export class AppFormCollegueComponent implements OnInit {
       this.dtService.postCollegue(this.saisieDeCollegue).subscribe(() => { }, error => console.log(error)
       );
     }
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000)
   }
 }

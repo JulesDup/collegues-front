@@ -17,6 +17,9 @@ export class DataService {
   get leTransfertCollegue() {
     return this.transfertCollegue.asObservable();
   }
+  getleTransfertCollegue(): Observable<Collegue> {
+    return this.transfertCollegue.asObservable();
+  }
 
   rechercherParNom(nom: string): Observable<string[]> {
 
@@ -36,4 +39,9 @@ export class DataService {
     return this.http.post<Collegue>(`https://digicapi.herokuapp.com/collegues/`, saisieDeCollegue)
       ;
   }
+  getAllCollegue(): Observable<Collegue[]> {
+
+    return this.http.get<Collegue[]>(`https://digicapi.herokuapp.com/collegues`);
+  }
+
 }

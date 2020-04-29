@@ -1,7 +1,7 @@
 <h1>Formulaire d'inscription</h1>
 
 
-<form #formulaireCollegue="ngForm">
+<form #formulaireCollegue="ngForm" (ngSubmit)="addCollegue()">
 
   <!-- Nom -->
   <div class="form-group ">
@@ -44,5 +44,8 @@
       required class="form-control" minlength=7 /><span *ngIf="etatPhotoUrl.dirty && etatPhotoUrl.invalid">Url Photo
       invalide</span>
   </div>
-  <button class="btn btn-success" [disabled]="formulaireCollegue.invalid" (click)="addCollegue()">Valider</button>
+  <button class="btn btn-success" [disabled]="formulaireCollegue.invalid" >Valider</button>
+  <div class="alert alert-success" role="success" *ngIf="formulaireCollegue.submitted">
+    {{messageValisation}}
+  </div>
 </form>
