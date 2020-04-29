@@ -1,5 +1,6 @@
 <div>
   <label> Recherche par noms :</label><input type="text" class="form-control" id="rechercheParNom" #saisieNom>
+
   <button class="btn btn-success" (click)="rechercher(saisieNom.value)" [hidden]="rechercheEnCours">Rechercher</button>
   <button class="btn btn-success" (click)="masquer()" [hidden]="!rechercheEnCours">Masquer</button>
 </div>

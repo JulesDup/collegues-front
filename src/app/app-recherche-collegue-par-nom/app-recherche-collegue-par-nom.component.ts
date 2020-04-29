@@ -12,7 +12,7 @@ export class AppRechercheCollegueParNomComponent implements OnInit, OnDestroy {
   public leCollegue: Collegue;
   public listMatricule: string[];
   public rechercheEnCours: boolean = false;
-
+  private mesError = "Pas de matricule correspondant trouvé";
   subRechercheCollegueParComponent: Subscription;
 
 
@@ -21,7 +21,7 @@ export class AppRechercheCollegueParNomComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    //this.listCollegues = this.dtService.rechercherParNom("socks");
+
   }
 
   rechercher(saisiNom: string) {

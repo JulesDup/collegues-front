@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Collegue } from '../models/collegue';
-import { collegues_mock, listCollegues_mock } from '../mock/collegues.mock';
+import SaisieDeCollegue from '../models/SaisieDeCollegue';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
@@ -13,20 +13,27 @@ export class DataService {
   private transfertCollegue = new Subject<Collegue>();
   constructor(private http: HttpClient) { }
 
+
   get leTransfertCollegue() {
     return this.transfertCollegue.asObservable();
   }
 
   rechercherParNom(nom: string): Observable<string[]> {
-    this.listColleguesRecherche = new Map(); //pour effacer ancienne recherche
-    //TODO retourner une liste de matricules fictifs à partir du fichier `src/app/mock/matricules.mock.ts`.
-    return this.http.get<string[]>(`https://collegues.herokuapp.com/collegues/?nom=` + nom);
 
+    //TODO retourner une liste de matricules fictifs à partir du fichier `src/app/mock/matricules.mock.ts`.
+    //Api antoine return this.http.get<string[]>(`https://collegues.herokuapp.com/collegues/?nom=` + nom);
+    //Api Rossi
+    return this.http.get<string[]>(`https://digicapi.herokuapp.com/collegues?nom=` + nom);
   }
   recupererCollegueCourant(matricule: string) {
     // TODO retourner le collègue fictif à partir du fichier  `src/app/mock/collegues.mock.ts`.
-    this.http.get<Collegue>(`https://collegues.herokuapp.com/collegues/` + matricule).subscribe(collegue => {
+    this.http.get<Collegue>(`https://digicapi.herokuapp.com/collegues/` + matricule).subscribe(collegue => {
       this.transfertCollegue.next(collegue);
     });
+  }
+  postCollegue(saisieDeCollegue: SaisieDeCollegue): Observable<Collegue> {
+    // TODO retourner le collègue fictif à partir du fichier  `src/app/mock/collegues.mock.ts`.
+    return this.http.post<Collegue>(`https://digicapi.herokuapp.com/collegues/`, saisieDeCollegue)
+      ;
   }
 }

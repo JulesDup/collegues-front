@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppFooterComponent } from './app-footer.component';
+import { AppFormCollegueComponent } from './app-form-collegue.component';
 
-describe('AppFooterComponent', () => {
-  let component: AppFooterComponent;
-  let fixture: ComponentFixture<AppFooterComponent>;
+describe('AppFormCollegueComponent', () => {
+  let component: AppFormCollegueComponent;
+  let fixture: ComponentFixture<AppFormCollegueComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppFooterComponent ]
+      declarations: [ AppFormCollegueComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppFooterComponent);
+    fixture = TestBed.createComponent(AppFormCollegueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

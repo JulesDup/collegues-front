@@ -11,14 +11,15 @@ import { DataService } from './services/data.service';
 export class AppComponent implements OnInit {
 
   unObjetCollegueFourni: Collegue;
+  modeCreation = false;
 
   constructor(private dtService: DataService) { }
 
   ngOnInit(): void {
-   // this.unObjetCollegueFourni = this.dtService.recupererCollegueCourant();
+    // this.unObjetCollegueFourni = this.dtService.recupererCollegueCourant();
   }
 
   creationCollegue() {
-    console.log('Creation d’un nouveau collegue');
+    this.modeCreation = true;
   }
 }

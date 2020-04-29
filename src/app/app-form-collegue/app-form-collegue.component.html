@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="container ">
+    <h1>Formulaire d'inscription</h1>
+    <form #formulaireCollegue="ngForm">
+
+      <!-- Nom -->
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input id="nom" type="text" name="nom" [(ngModel)]="saisieDeCollegue.nom" #etatNom="ngModel" required
+          class="form-control" />
+        <span *ngIf="etatNom.dirty && etatNom.invalid" class="alert alert-danger" role="alert">
+          Le nom doit être renseigné
+        </span>
+      </div>
+      <!-- Prenom -->
+      <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input id="prenom" type="text" name="prenom" [(ngModel)]="saisieDeCollegue.prenoms" #etatPrenom="ngModel"
+          required class="form-control" />
+        <span *ngIf="etatPrenom.dirty && etatPrenom.invalid" class="alert alert-danger" role="alert">
+          Le prénom doit être renseigné
+        </span>
+      </div>
+      <!-- dateDeNaissance -->
+      <div class="form-group">
+        <label for="dateDeNaissance">Date de Naissance</label>
+        <input id="dateDeNaissance" type="date" name="dateDeNaissance" [(ngModel)]="saisieDeCollegue.dateDeNaissance"
+          #etatDateDeNaissance="ngModel" required class="form-control" />
+        <span *ngIf="etatDateDeNaissance.dirty && etatDateDeNaissance.invalid" class="alert alert-danger" role="alert">
+          La date de naissance doit être renseigné
+        </span>
+      </div>
+      <!-- email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input email id="email" type="text" name="email" [(ngModel)]="saisieDeCollegue.email" #etatEmail="ngModel"
+          required class="form-control" /><span *ngIf="etatEmail.dirty && etatEmail.invalid">e-mail
+          invalide</span>
+      </div>
+      <!-- photoUrl -->
+      <div class="form-group">
+        <label for="photoUrl">Photo URL</label>
+        <input id="photoUrl" type="text" name="photoUrl" [(ngModel)]="saisieDeCollegue.photoUrl" #etatPhotoUrl="ngModel"
+          required class="form-control" minlength=7 /><span *ngIf="etatPhotoUrl.dirty && etatPhotoUrl.invalid">Url Photo
+          invalide</span>
+      </div>
+      <button class="btn btn-success" [disabled]="formulaireCollegue.invalid" (click)="addCollegue()">Valider</button>
+    </form>
+  </div>
+</div>

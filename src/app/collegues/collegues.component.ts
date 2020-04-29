@@ -12,7 +12,8 @@ export class ColleguesComponent implements OnInit, OnDestroy {
 
   collegue: Collegue;
   transferleCollegue: Subscription;
-  afficheComponent = false;
+  modeCreation = false;
+
 
   constructor(private dtService: DataService) {
     this.modModif = false;
@@ -21,7 +22,6 @@ export class ColleguesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.transferleCollegue = this.dtService.leTransfertCollegue.subscribe(collegue => {
       this.collegue = collegue;
-      this.afficheComponent = true;
     })
   }
   modifier() {

@@ -1,5 +1,5 @@
 <header>
-  <app-footer></app-footer>
+  <app-header></app-header>
 </header>
 
 <div class="container-fluid">
@@ -17,9 +17,13 @@
 
         <app-collegues></app-collegues>
       </div>
+      <a *ngIf="!modeCreation" class="nav-link" routerLink="nouveauCollegue" (click)="creationCollegue()">ajouter un
+        nouveau
+        collegue</a>
     </div>
 
   </div>
 
+  <app-form-collegue *ngIf="modeCreation" class="p-4"></app-form-collegue>
 </div>
 <footer></footer>

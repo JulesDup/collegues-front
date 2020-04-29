@@ -6,21 +6,25 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ColleguesComponent } from './collegues/collegues.component';
 import { AppRechercheCollegueParNomComponent } from './app-recherche-collegue-par-nom/app-recherche-collegue-par-nom.component';
-import { AppFooterComponent } from './app-footer/app-footer.component';
+import { AppHeaderComponent } from './app-header/app-header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppFormCollegueComponent } from './app-form-collegue/app-form-collegue.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ColleguesComponent,
     AppRechercheCollegueParNomComponent,
-    AppFooterComponent
+    AppHeaderComponent,
+    AppFormCollegueComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
