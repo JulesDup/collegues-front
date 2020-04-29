@@ -17,6 +17,7 @@ import { AffichageCollRecherComponent } from './affichage-coll-recher/affichage-
 const appRoute: Routes = [
   { path: 'formulaireCollegue', component: AppFormCollegueComponent },
   { path: 'accueil', component: AffichageCollRecherComponent },
+  { path: 'galerie', component: AffichageCollRecherComponent },
   { path: '', pathMatch: 'full', redirectTo: 'accueil' }
 ];
 @NgModule({

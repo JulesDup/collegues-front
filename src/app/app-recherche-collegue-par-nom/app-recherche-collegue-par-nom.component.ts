@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './app-recherche-collegue-par-nom.component.html',
   styleUrls: ['./app-recherche-collegue-par-nom.component.css']
 })
-export class AppRechercheCollegueParNomComponent implements OnInit, OnDestroy {
+export class AppRechercheCollegueParNomComponent implements OnInit {
   public listCollegues: Collegue[];
   public leCollegue: Collegue;
   public listMatricule: string[];
@@ -39,7 +39,5 @@ export class AppRechercheCollegueParNomComponent implements OnInit, OnDestroy {
   masquer() {
     this.rechercheEnCours = false;
   }
-  ngOnDestroy() {
-    this.subRechercheCollegueParComponent.unsubscribe();
-  }
+
 }
