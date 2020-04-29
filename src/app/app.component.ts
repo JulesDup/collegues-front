@@ -11,7 +11,7 @@ import { DataService } from './services/data.service';
 export class AppComponent implements OnInit {
 
   unObjetCollegueFourni: Collegue;
-  modeCreation = false;
+
 
   constructor(private dtService: DataService) { }
 
@@ -19,7 +19,5 @@ export class AppComponent implements OnInit {
     // this.unObjetCollegueFourni = this.dtService.recupererCollegueCourant();
   }
 
-  creationCollegue() {
-    this.modeCreation = true;
-  }
+
 }

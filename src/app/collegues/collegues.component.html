@@ -1,51 +1,43 @@
-<div class="container" *ngIf="collegue">
-  <div class="row">
+<div class="row" *ngIf="collegue">
 
-
-    <div class="row">
-
-      <div class=" col-sm-12 col-md-4 ">
-        <h2>M. {{collegue.nom}} </h2>
-        <img src="{{collegue.photoUrl}}" alt="imageProfil" class="img-rounded img-fluid" />
-      </div>
-      <div class="col-sm-12 col-md-6 rounded  p-3" style="background-color:rgba(224, 241, 224, 0.945);">
-        <h4>Profil Collegue :</h4>
-
-
-        <label><b> Matricule :</b></label>
-        {{collegue.matricule}}
-        <br />
-
-
-        <label> <b> Nom :</b> </label>
-        {{collegue.nom | uppercase}}
-        <br />
-
-
-        <label><b> Prenom :</b> </label>
-        {{collegue.prenom}}
-        <br />
-
-
-        <label> <b> Date de naissance :</b> </label>
-        {{collegue.dateDeNaissance| date:'dd/MM/yyyy'}}
-        <br />
-
-
-        <label><b> Email :</b> </label>
-        <div *ngIf="!modModif ; else desactivModifPut">
-          {{collegue.email}}
-        </div>
-        <ng-template #desactivModifPut><input type="text" class="form-control" id="mail" value="{{collegue.email}}">
-        </ng-template>
-        <br />
-
-      </div>
-
-
-
-    </div>
+  <div class=" col-sm-12 col-md-4 ">
+    <h2>M. {{collegue.nom}} </h2>
+    <img src="{{collegue.photoUrl}}" alt="imageProfil" class="img-rounded img-fluid" />
   </div>
+  <div class="col-sm-12 col-md-6 rounded  p-3" style="background-color:rgba(224, 241, 224, 0.945);">
+    <h4>Profil Collegue :</h4>
+
+
+    <label><b> Matricule :</b></label>
+    {{collegue.matricule}}
+    <br />
+
+
+    <label> <b> Nom :</b> </label>
+    {{collegue.nom | uppercase}}
+    <br />
+
+
+    <label><b> Prenom :</b> </label>
+    {{collegue.prenom}}
+    <br />
+
+
+    <label> <b> Date de naissance :</b> </label>
+    {{collegue.dateDeNaissance| date:'dd/MM/yyyy'}}
+    <br />
+
+
+    <label><b> Email :</b> </label>
+    <div *ngIf="!modModif ; else desactivModifPut">
+      {{collegue.email}}
+    </div>
+    <ng-template #desactivModifPut><input type="text" class="form-control" id="mail" value="{{collegue.email}}">
+    </ng-template>
+    <br />
+
+  </div>
+
   <!-- Split button -->
   <div class="offset-4 btn-group">
     <div *ngIf="!modModif ; else desactivModif">
@@ -55,6 +47,5 @@
     <ng-template #desactivModif><button type="button" class="btn btn-success" (click)="validation()">
         Valider
       </button></ng-template>
-    <br />
   </div>
 </div>

@@ -10,18 +10,28 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppFormCollegueComponent } from './app-form-collegue/app-form-collegue.component';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { AffichageCollRecherComponent } from './affichage-coll-recher/affichage-coll-recher.component';
 
+
+const appRoute: Routes = [
+  { path: 'formulaireCollegue', component: AppFormCollegueComponent },
+  { path: 'accueil', component: AffichageCollRecherComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'accueil' }
+];
 @NgModule({
   declarations: [
     AppComponent,
     ColleguesComponent,
     AppRechercheCollegueParNomComponent,
     AppHeaderComponent,
-    AppFormCollegueComponent
+    AppFormCollegueComponent,
+    AffichageCollRecherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(appRoute),
     NgbModule,
     HttpClientModule,
     FormsModule
