@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Collegue } from '../models/Collegue';
+import { Collegue } from '../models/collegue';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
